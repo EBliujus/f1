@@ -6,9 +6,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         
-        <Bebras/>
-        <Bebras/>
-        <Bebras></Bebras>
+        <Bebras color="skyblue" lt= "1px" name="Jurgis"/>
+        <Bebras color="orange" lt= "7px" name="Linas"/>
+        <Bebras color="yellow" lt= "-5px" name="Simonas"></Bebras>
 
       </header>
     </div>
