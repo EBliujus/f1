@@ -41,13 +41,17 @@
   background-color: crimson;
 }
 .card {
-  h2 {
-    color: coral;
+  .card-header{
+    background-color: darkolivegreen;
+    h2 {
+      color: coral;
+    }
   }
   li {
     color: skyblue;
+    background-color: darkgoldenrod;
     &.big {
-      letter-spacing: 5px;
+      letter-spacing: 7px;
     }
     // &__super{
     //   letter-spacing: 3px;

@@ -2,10 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss';
 
 const animals = [
-    'Racoon',
-    'Fox',
-    'Moose',
-    'Wolf'
+    {name: 'Racoon', color: 'skyblue', big: true},
+    {name: 'Fox', color: 'brown', big: false},
+    {name: 'Moose', color: 'yellow', big: true},
+    {name: 'Wolf', color: 'gray', big: false},
 ];
 
 function App() {
@@ -19,7 +19,13 @@ function App() {
            <h2>Forest Book</h2>
          </div>
          <ul className="list-group list-group-flush">
-            <li className="list-group-item">An item</li>
+            {
+                animals.map((a, i) =>
+                <li key={i} className={'list-group-item' + (a.big ? ' big' : '')} 
+                style={{color: a.color}}>
+                    {a.name}
+                </li> )  
+            }
         </ul>
     </div>
 
