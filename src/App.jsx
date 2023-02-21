@@ -1,14 +1,27 @@
-import './App.css';
-import Bebras from './Components/003/Bebras';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.scss';
+
+const animals = [
+    'Racoon',
+    'Fox',
+    'Moose',
+    'Wolf'
+];
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
         
-        <Bebras color="skyblue" lt= "1px" name="Jurgis"/>
-        <Bebras color="orange" lt= "7px" name="Linas"/>
-        <Bebras color="yellow" lt= "-5px" name="Simonas"></Bebras>
+    <div className="card">
+        <div className="card-header">
+           <h2>Forest Book</h2>
+         </div>
+         <ul className="list-group list-group-flush">
+            <li className="list-group-item">An item</li>
+        </ul>
+    </div>
 
       </header>
     </div>

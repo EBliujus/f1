@@ -40,3 +40,17 @@
   padding: 10px;
   background-color: crimson;
 }
+.card {
+  h2 {
+    color: coral;
+  }
+  li {
+    color: skyblue;
+    &.big {
+      letter-spacing: 5px;
+    }
+    // &__super{
+    //   letter-spacing: 3px;
+    // }
+  }
+}
