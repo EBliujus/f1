@@ -12,13 +12,25 @@ const animals = [
 function App() {
 
     const [h2Color, setH2Color] = useState('crimson');
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(1);
+
+    const [wish, setWish] = useState('*--*');
+
+    const [size, setSize] = useState(0);
 
     const clickIt = () => {
         setH2Color(c => c === 'crimson' ? 'yellow' : 'crimson');
     }
     const add1 = () => {
-        setCount(c => c + 1)
+        setCount(c => c + 1);
+    }
+
+    const doWish = e => {
+        setWish(e.target.value);
+    }
+
+    const doWishSize = e => {
+        setSize(e.target.value);
     }
 
   return (
@@ -38,9 +50,17 @@ function App() {
                 </li> )  
             }
         </ul>
+            <div className="m-3">
+                <label className="form-label">Enter your wish</label>
+                <input type="text" className="form-control" onChange={doWish} value={wish} />
+            </div>
+            <div className="m-3">
+                <label className="form-label">How Big <i>{size}</i></label>
+                <input type="range" className="form-control" min = "0" max = "10" onChange={doWishSize} value={size} />
+            </div>
     </div>
-    <button type="button" className="btn btn-outline-danger mt-4" onClick={clickIt}>Click</button>
-    <button type="button" className="btn btn-outline-warning mt-4" onClick={add1}>+ 1</button>
+            <button type="button" className="btn btn-outline-danger mt-4" onClick={clickIt}>Click</button>
+            <button type="button" className="btn btn-outline-warning mt-4" onClick={add1}>+ 1</button>
       </header>
     </div>
   );
