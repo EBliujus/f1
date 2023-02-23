@@ -40,8 +40,8 @@ function App() {
     <div className="card">
         <div className="card-header">
            <h2 style={{color: h2Color}}>Forest Book (page {count})</h2>
-         </div>
-         <ul className="list-group list-group-flush">
+        </div>
+            <ul className="list-group list-group-flush">
             {
                 animals.map((a, i) =>
                 <li key={i} className={'list-group-item' + (a.big ? ' big' : '')} 
@@ -49,7 +49,7 @@ function App() {
                     {a.name}
                 </li> )  
             }
-        </ul>
+            </ul>
             <div className="m-3">
                 <label className="form-label">Enter your wish</label>
                 <input type="text" className="form-control" onChange={doWish} value={wish} />

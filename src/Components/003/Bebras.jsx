@@ -3,13 +3,13 @@ import BebrasName from "./BebrasName";
 
 function Bebras ({color, lt, name}) {
 
-        const fun = () => {
+/*         const fun = () => {
             let a = '';
             for (let i = 1; i <= 9; i++) {
                 a = a + i
             }
             return a;
-        }
+        } */
 
     return (
         <>
