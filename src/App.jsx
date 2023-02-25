@@ -4,7 +4,7 @@ import "./App.scss";
 import "./Components/007/Create"
 import Create from "./Components/007/Create";
 import List from "./Components/007/List";
-import { create, read } from "./Functions/localStorage";
+import { create, destroy, read } from "./Functions/localStorage";
 
 
 const KEY = 'wishList';
@@ -14,6 +14,7 @@ function App() {
   const [list, setList] = useState(null);
   const [lastRefresh, setLastResfresh] = useState(Date.now());
   const [createData, setCreateData] = useState(null);
+  const [deleteData, setDeleteData] = useState(null);
 
   useEffect(() => {
     // Loading'o imitacija
@@ -32,6 +33,17 @@ function App() {
     setLastResfresh(Date.now())
   }, [createData]);
 
+  useEffect(() => {
+    if (null === deleteData) {
+      return;
+    }
+    // tipo klientas(narsykle)
+    setList(l => l.filter(d => deleteData.id !== d.id))
+    // tipo serveris
+    destroy(KEY, deleteData.id);
+    setLastResfresh(Date.now())
+  }, [deleteData]);
+
   return (
     <div className="container">
       <div className="row">
@@ -40,7 +52,7 @@ function App() {
         </div>
 
         <div className="col-8">
-          <List list={list}/>
+          <List list={list} setDeleteData={setDeleteData}/>
         </div>
       </div>
     </div>

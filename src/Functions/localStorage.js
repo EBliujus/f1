@@ -21,3 +21,10 @@ export const create = (key, data) => {
     write(key, allData);
 
 }
+
+export const destroy = (key, id) => {
+    const allData = read(key);
+    const deletedData = allData.filter(d => id !== d.id);
+    write(key, deletedData);
+
+}

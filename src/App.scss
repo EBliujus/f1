@@ -81,3 +81,21 @@
         cursor: pointer;
     }
 }
+.ed-button {
+  position: absolute;
+  right: 45px;
+  top: 5px;
+  &::after {
+      content: '\2629';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      border-radius: 50%;
+      background-color: darkcyan;
+      color: white;
+      cursor: pointer;
+  }
+}
