@@ -45,9 +45,11 @@ function App() {
                 <li>LOADING...</li> */
             }
            </ul>
+           <div className='myg'>
            <button className='btn btn-outline-primary m-4' onClick={sort}>Sort</button>
            <button className='btn btn-outline-primary m-4' onClick={sortBack}>Sort Back</button>
            <button className='btn btn-outline-primary m-4' onClick={nameLength}>Name Length</button> 
+           </div>
       </header>
     </div>
   );
