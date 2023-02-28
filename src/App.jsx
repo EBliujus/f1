@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import "./App.scss";
 import "./Components/007/Create"
 import Create from "./Components/007/Create";
+import Edit from "./Components/007/Edit";
 import List from "./Components/007/List";
-import { create, destroy, read } from "./Functions/localStorage";
+import { create, destroy, edit, read } from "./Functions/localStorage";
 
 
 const KEY = 'wishList';
@@ -15,12 +16,14 @@ function App() {
   const [lastRefresh, setLastResfresh] = useState(Date.now());
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
+  const [modalData, setModalData] = useState(null);
+  const [editData, setEditData] = useState(null);
 
   useEffect(() => {
     // Loading'o imitacija
-    setTimeout(() => setList(read(KEY)), 1000);
+    // setTimeout(() => setList(read(KEY)), 1000);
     // be imitacijos
-    // setList(read(KEY));
+    setList(read(KEY));
   }, [lastRefresh]);
   
 
@@ -44,19 +47,29 @@ function App() {
     setLastResfresh(Date.now())
   }, [deleteData]);
 
+  useEffect(() => {
+    if (null === editData) {
+      return;
+    }
+    edit(KEY, editData, editData.id);
+    setLastResfresh(Date.now())
+  }, [editData]);
+
   return (
-    <div className="container">
+
+  <>
+  <div className="container">
       <div className="row">
-        <div className="col-4">
-          <Create setCreateData={setCreateData} />
-        </div>
-
-        <div className="col-8">
-          <List list={list} setDeleteData={setDeleteData}/>
-        </div>
+          <div className="col-4">
+              <Create setCreateData={setCreateData} />
+          </div>
+      <div className="col-8">
+          <List list={list} setDeleteData={setDeleteData} setModalData ={setModalData}/>
       </div>
-    </div>
-
+      </div>
+  </div>
+  <Edit modalData={modalData} setModalData={setModalData} setEditData={setEditData}/>
+  </>
     
   );
 }

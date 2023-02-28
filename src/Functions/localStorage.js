@@ -28,3 +28,9 @@ export const destroy = (key, id) => {
     write(key, deletedData);
 
 }
+
+export const edit = (key, data, id) => {
+    const allData = read(key); 
+    const editedData = allData.map(d => id === d.id ? {...d, ...data, id: id} : {...d});
+    write(key, editedData);
+}
